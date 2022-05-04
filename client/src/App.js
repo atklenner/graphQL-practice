@@ -1,5 +1,7 @@
+import LinkList from "./components/LinkList";
+
 function App() {
-  return <div className="App"></div>;
+  return <LinkList />;
 }
 
 export default App;
