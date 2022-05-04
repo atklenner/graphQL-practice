@@ -14,6 +14,30 @@ async function post(parent, args, context, info) {
   });
 }
 
+async function updateLink(parent, args, context) {
+  const { userId } = context;
+
+  return await context.prisma.link.update({
+    where: {
+      id: args.id,
+    },
+    data: {
+      description: args.description,
+      url: args.url,
+    },
+  });
+}
+
+async function deleteLink(parent, args, context) {
+  const { userId } = context;
+
+  return await context.prisma.link.delete({
+    where: {
+      id: args.id,
+    },
+  });
+}
+
 async function signup(parent, args, context, info) {
   const password = await bcrypt.hash(args.password, 10);
 
@@ -52,6 +76,8 @@ async function login(parent, args, context, info) {
 
 module.exports = {
   post,
+  updateLink,
+  deleteLink,
   signup,
   login,
   post,
