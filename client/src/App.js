@@ -1,7 +1,8 @@
+import CreateLink from "./components/CreateLink";
 import LinkList from "./components/LinkList";
 
 function App() {
-  return <LinkList />;
+  return <CreateLink />;
 }
 
 export default App;
